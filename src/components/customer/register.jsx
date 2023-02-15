@@ -6,12 +6,14 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 function Register() {
-  const url = "";
+  const url = "http://localhost:2024/customer/addcustomer";
 
   const registerSchema = Yup.object().shape({
-    custName: Yup.string().required("This Field cannot be empty"),
-    
-  
+    custId: Yup.string()
+      .required("This Field cannot be empty"),
+      
+    // custName: Yup.string().length(10).required("This Field cannot be empty"),
+
     mobileNo: Yup.string()
       .length(10)
       .required("This Field cannot be empty")
@@ -19,26 +21,24 @@ function Register() {
 
     email: Yup.string().email().required("This Field cannot be empty"),
 
-    custPassword: Yup.string()
+    password: Yup.string()
       .min(8, "password should be 8 characters long")
-      .required("This Field cannot be empty")
-    
+      .required("This Field cannot be empty"),
   });
 
   function submit(values) {
     // e.preventDefault();
     Axios.post(url, {
-        // customerId: values.customerId,
+      custId: values.custId,
       custName: values.custName,
       mobileNo: values.mobileNo,
       email: values.email,
-      custPassword: values.custPassword
+      password: values.password,
     }).then((res) => {
       alert("Registration Success");
-      window.location.href = 'http://localhost:3002/'
+      window.location.href = "http://localhost:3000/";
     });
   }
-  
 
   return (
     <div className="maincontainer">
@@ -46,12 +46,11 @@ function Register() {
         <div className="title">Registration</div>
         <Formik
           initialValues={{
-            // customerId: "",
+            custId: "",
             custName: "",
             mobileNo: "",
             email: "",
-            custPassword: "",
-            
+            password: "",
           }}
           onSubmit={(e) => submit(e)}
           validationSchema={registerSchema}
@@ -60,26 +59,31 @@ function Register() {
             <div className="content">
               <Form>
                 <div className="user-details">
-                  {/* <div className="input-box">
-                                <span className="details">Customer ID(TEMP)</span>
-                                <Field onChange={(e) => handle(e)} type="number" id="customerId" value={data.customerId}
-                                    placeholder="ID(temp)" /><ErrorMessage name="" />
-                            </div> */}
                   <div className="input-box">
-                    <span className="details">Full Name</span>
+                    <span className="details">Customer ID(TEMP)</span>
                     <Field
-                      name="custName "
-                      type="text"
-                      id="custName"
-                      placeholder="Name"
+                      name="custId"
+                      type="number"
+                      id="custId"
+                      placeholder="ID(temp)"
                     />
-                    <div className="error">
-                    <ErrorMessage name="custName" />
-                    </div>
+                    <ErrorMessage name="custId" />
                   </div>
                   
-                  
-                  
+                  <div className="input-box">
+                  <span className="details">Name</span>
+                  <Field
+                    name="custName"
+                    type="text"
+                    
+                    id="custName"
+                    placeholder="Name"
+                  />
+                  <div className="error">
+                  <ErrorMessage name="custName" />
+                  </div>
+                </div>
+
                   <div className="input-box">
                     <span className="details">Phone Number</span>
                     <Field
@@ -89,11 +93,11 @@ function Register() {
                       placeholder="Contact"
                     />
                     <div className="error">
-                    <ErrorMessage name="mobileNo" />
+                      <ErrorMessage name="mobileNo" />
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="input-box">
                   <span className="details">Email</span>
                   <Field
@@ -104,25 +108,22 @@ function Register() {
                     placeholder="Email"
                   />
                   <div className="error">
-                  <ErrorMessage name="email" />
+                    <ErrorMessage name="email" />
                   </div>
                 </div>
                 <div className="input-box">
                   <span className="details">Password</span>
                   <Field
-                    name="custPassword"
-                    type="custPassword"
+                    name="password"
+                    type="password"
                     className="form-2"
-                    id="custPassword"
+                    id="password"
                     placeholder="Password"
                   />
                   <div className="error">
-                  <ErrorMessage name="custPassword" />
+                    <ErrorMessage name="password" />
                   </div>
                 </div>
-
-
-                
 
                 <div className="button">
                   <input type="submit" value="Register" />

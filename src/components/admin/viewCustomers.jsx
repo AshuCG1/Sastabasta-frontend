@@ -37,6 +37,7 @@ class ViewCustomer extends React.Component {
                             <td> Contact</td>
                             <td> Email</td>
                             
+                            
                         </tr>
                     </thead>
                     <tbody>
