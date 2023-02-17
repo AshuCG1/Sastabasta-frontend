@@ -1,97 +1,182 @@
+// import React, { useState } from "react";
+// import "./AddProduct.css";
+// import Axios from "axios";
+
+// const AddProduct = () => {
+//   const url = "http://localhost:2024/product/addproduct";
+
+//   const [product, setProduct] = useState({
+//     productName: "",
+//     productBrand: "",
+//     type: "",
+//     colour: "",
+//     image: "",
+//   });
+
+//   const handleChange = (event) => {
+//     setProduct({ ...product, [event.target.productName]: event.target.value });
+//   };
+
+//   // const handleImageChange = (event) => {
+//   //   setProduct({ ...product, image: URL.createObjectURL(event.target.files[0]) });
+//   // };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     console.log(product);
+//     Axios.post(url, {
+//       // customerId: values.customerId,
+//     productName: event.productName,
+//     productBrand: event.productBrand,
+//     type: event.type,
+//     colour: event.colour,
+//     image: event.image
+//   }).then((res) => {
+//     alert("Added Success");
+    
+//   });
+//   };
+
+//   return (
+//     <form className="add-product-form" onSubmit={handleSubmit}>
+//       <div className="form-group">
+//         <label htmlFor="productName">Product Name:</label>
+//         <input
+//           type="text"
+//           name="productName"
+//           value={product.productName}
+//           onChange={handleChange}
+//           required
+//         />
+//       </div>
+//       <div className="form-group">
+//         <label htmlFor="productBrand">productBrand:</label>
+//         <input
+//           type="text"
+//           name="productBrand"
+//           value={product.productBrand}
+//           onChange={handleChange}
+//           required
+//         />
+//       </div>
+//       <div className="form-group">
+//         <label htmlFor="type">Type:</label>
+//         <input
+//           type="text"
+//           name="type"
+//           value={product.type}
+//           onChange={handleChange}
+//           required
+//         />
+//       </div>
+//       <div className="form-group">
+//         <label htmlFor="colour">colour:</label>
+//         <input
+//           type="text"
+//           name="colour"
+//           value={product.colour}
+//           onChange={handleChange}
+//           required
+//         />
+//       </div>
+//       <div className="form-group">
+//         <label htmlFor="image">Image Link:</label>
+//         <input
+//           type="text"
+//           name="image"
+//           value ={product.image}
+//           // accept="image/*"
+//           // onChange={handleImageChange}
+//           onChange={handleChange}
+//           required
+//         />
+//       </div>
+//       <button type="submit">Add Product</button>
+//     </form>
+//   );
+// };
+
+// export default AddProduct;
 import React, { useState } from "react";
+import axios from "axios";
 import "./AddProduct.css";
-import Axios from "axios";
 
 const AddProduct = () => {
-  const url = "http://localhost:2024/product/addproduct";
-
-  const [product, setProduct] = useState({
-    name: "",
-    brand: "",
+  const [formData, setFormData] = useState({
+    productName: "",
+    productBrand: "",
     type: "",
-    color: "",
+    colour: "",
     image: "",
   });
 
-  const handleChange = (event) => {
-    setProduct({ ...product, [event.target.name]: event.target.value });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleImageChange = (event) => {
-    setProduct({ ...product, image: URL.createObjectURL(event.target.files[0]) });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(product);
-    Axios.post(url, {
-      // customerId: values.customerId,
-    productName: event.name,
-    productBrand: event.brand,
-    type: event.type,
-    colur: event.color,
-    image: event.image
-  }).then((res) => {
-    alert("Added Success");
-    window.location.href = 'http://localhost:3002/'
-  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:2024/product/addproduct", formData);
+      console.log(response);
+      alert("Product added successfully")
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <form className="add-product-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="name">Product Name:</label>
+    <div className="add-product-container">
+      <h2>Add a Product</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="productName">Product Name</label>
         <input
           type="text"
-          name="name"
-          value={product.name}
+          name="productName"
+          value={formData.productName}
           onChange={handleChange}
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="brand">Brand:</label>
+        <label htmlFor="productBrand">Product Brand</label>
         <input
           type="text"
-          name="brand"
-          value={product.brand}
+          name="productBrand"
+          value={formData.productBrand}
           onChange={handleChange}
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="type">Type:</label>
+        <label htmlFor="type">Type</label>
+        <select name="type" value={formData.type} onChange={handleChange}>
+          <option value="luggage">Luggage</option>
+          <option value="travel bag">Travel Bag</option>
+          <option value="wallet">Wallet</option>
+          <option value="duffle">Duffle</option>
+          <option value="business bag">Business Bag</option>
+        </select>
+        <label htmlFor="colour">Colour</label>
         <input
           type="text"
-          name="type"
-          value={product.type}
+          name="colour"
+          value={formData.colour}
           onChange={handleChange}
           required
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="color">Color:</label>
+        <label htmlFor="image">Image Link</label>
         <input
           type="text"
-          name="color"
-          value={product.color}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="image">Image:</label>
-        <input
-          type="file"
           name="image"
-          accept="image/*"
-          onChange={handleImageChange}
+          value={formData.image}
+          onChange={handleChange}
           required
         />
-      </div>
-      <button type="submit">Add Product</button>
-    </form>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
   );
 };
 
 export default AddProduct;
+
