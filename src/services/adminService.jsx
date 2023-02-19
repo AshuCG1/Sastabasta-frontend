@@ -11,8 +11,8 @@ class AdminService {
   updateAdmin(admin) {
     return axios.put(baseURL + "/admin", admin);
   }
-  deleteAdmin(adminId) {
-    return axios.delete(baseURL + "/" + adminId);
+  deleteCustomer(id) {
+    return axios.delete("http://localhost:2024/customer/deleteById/"+ id);
   }
 //   buyInsurance(customerId, insuranceId) {
 //     return axios.put(

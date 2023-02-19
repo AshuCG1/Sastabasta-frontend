@@ -1,0 +1,54 @@
+.choice-container{
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+
+.choices{
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.choice-links{
+  width: 300px;
+  height: 200px;
+}
+
+.ch{
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.ch > img{
+  width: 100%;
+  height: 100%;  
+  transition: 0.2s ease-in-out;
+}
+
+.ch > img:hover{
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+
+
+.ch > h2{
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-transform: uppercase;
+  background-color: rgba(0,0,0,0.5);
+  padding: 5px 10px;
+
+}

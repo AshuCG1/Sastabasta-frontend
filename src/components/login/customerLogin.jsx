@@ -4,7 +4,10 @@ import  Button  from '../Button'
 import { images } from '../../constants/index'
 import { Link } from 'react-router-dom'
 
-const CustomerLogin = () => {
+function CustomerLogin() {
+  
+
+
   return (<>
     <div className='section log'>  
       <div className='logImg'>

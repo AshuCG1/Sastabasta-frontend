@@ -34,6 +34,7 @@ export default class UpdateCustomer extends Component {
                 email: customer.email,
                 password: customer.password
             });
+            console.log(customer)
         });
     }
 

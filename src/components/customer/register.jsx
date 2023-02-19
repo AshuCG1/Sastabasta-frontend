@@ -6,13 +6,12 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 function Register() {
-  const url = "http://localhost:2024/customer/addcustomer";
+  const url = "http://localhost:2024/customer/addCustomer";
 
   const registerSchema = Yup.object().shape({
-    custId: Yup.string()
-      .required("This Field cannot be empty"),
+    
       
-    // custName: Yup.string().length(10).required("This Field cannot be empty"),
+    custName: Yup.string().required("This Field cannot be empty"),
 
     mobileNo: Yup.string()
       .length(10)
@@ -22,14 +21,18 @@ function Register() {
     email: Yup.string().email().required("This Field cannot be empty"),
 
     password: Yup.string()
-      .min(8, "password should be 8 characters long")
-      .required("This Field cannot be empty"),
+      .required("This Field cannot be empty")
+      .matches(/(?=.{8,20})/, "Password must match criteria")
+      .matches(/^(?=.*[a-z])/,"Password must contain at least one Lowercase letter")
+      .matches(/^(?=.*[A-Z])/,"Password must contain at least one Uppercase letter")
+      .matches(/^(?=.*[0-9])/,"Password must contain at least one Number")
+      .matches(/^(?=.*[!@#\$%\^&\*])/,"Password must contain at least one Special Character")
   });
 
   function submit(values) {
     // e.preventDefault();
     Axios.post(url, {
-      custId: values.custId,
+    
       custName: values.custName,
       mobileNo: values.mobileNo,
       email: values.email,
@@ -46,7 +49,7 @@ function Register() {
         <div className="title">Registration</div>
         <Formik
           initialValues={{
-            custId: "",
+          
             custName: "",
             mobileNo: "",
             email: "",
@@ -59,16 +62,7 @@ function Register() {
             <div className="content">
               <Form>
                 <div className="user-details">
-                  <div className="input-box">
-                    <span className="details">Customer ID(TEMP)</span>
-                    <Field
-                      name="custId"
-                      type="number"
-                      id="custId"
-                      placeholder="ID(temp)"
-                    />
-                    <ErrorMessage name="custId" />
-                  </div>
+                  
                   
                   <div className="input-box">
                   <span className="details">Name</span>

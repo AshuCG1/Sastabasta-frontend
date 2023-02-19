@@ -14,6 +14,10 @@ import UpdateCustomer from './components/customer/updateCustomer';
 import Product from './components/product/Product';
 import AdminLogin from './components/login/adminLogin';
 import CustomerLogin from './components/login/customerLogin';
+import Dashboard from './components/admin/dashboard';
+import CustomerDashboard from './components/customer/customerDashboard';
+import ViewProduct from './components/customer/viewProduct';
+import ViewProductAdmin from './components/admin/viewProductAdmin';
 function App() {
   return (
     <div className="App">
@@ -31,6 +35,10 @@ function App() {
             <Route exact path='/viewcustomer' component={ViewCustomer}></Route>
             <Route exact path='/wishlist' component={Wishlist}></Route>
             <Route exact path="/updateCustomer/:custId" component={UpdateCustomer}></Route>
+            <Route exact path='/adminDash' component={Dashboard}></Route>
+            <Route exact path='/customerDash' component={CustomerDashboard}></Route>
+            <Route exact path='/viewProduct' component={ViewProduct}></Route>
+            <Route exact path='/viewProductAdmin' component={ViewProductAdmin}></Route>
             
           </Switch>
         </div>
