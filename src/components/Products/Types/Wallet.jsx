@@ -1,13 +1,12 @@
-
-import "./products.css"
-import Product from '../product/Product'
+import "../products.css"
+import Product from "./product/Product"
 import React, { useState, useEffect } from "react";
 
-const Products = () => {
+const Wallet = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:2024/productWebsite/getAll")
+        fetch("http://localhost:2024/product/filter?type=wallet")
         .then(res => res.json())
         .then(data => {
             setProducts(data);
@@ -17,7 +16,7 @@ const Products = () => {
     }, []);
     return (
          <div className='section prdct'>
-            <h1 className='heading'>All Products</h1>
+            <h1 className='heading'>Wallets</h1>
             <div className='all-products p2'>
                 {products.map((product) =>
                     <Product product={product} />
@@ -26,4 +25,4 @@ const Products = () => {
         </div> 
     )
 };
-export default Products
+export default Wallet

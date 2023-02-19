@@ -33,7 +33,7 @@ const Dashboard = () => {
           </Link>
         </div>
         <div className="col-md-4">
-          <Link to="/add-product-details">
+          <Link to="/products">
             <div className="card">
               <img
                 src="https://img.freepik.com/free-vector/consumer-demand-abstract-concept-illustration-customer-decision-buy-product-service-consumer-satisfaction-retail-marketing-market-price-consumption-society_335657-3327.jpg?"

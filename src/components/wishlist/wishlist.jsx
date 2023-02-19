@@ -4,8 +4,6 @@ import './wishlist.css'
 import React, { useState, useEffect } from "react";
 
 
-
-
     // const totalP = (products.map( p => p.price ).reduce( (pr, total) => { return total += pr},0));
     const Wishlist = () => {
         const [products, setProducts] = useState([]);
@@ -28,15 +26,13 @@ import React, { useState, useEffect } from "react";
             { products.map((p) => (
                 <div className='cart-product'>
                     <img src={p.image} alt="" />
-                    <div className='data'>
-                        <h4>{p.name}</h4>
-                        <p>{p.description}</p>
-                        <div style={{ display:"flex", flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                        <label htmlFor='number' style={{ fontSize: '14px', fontWeight:'500', marginRight:'5px'}}>Qty:</label>
-                        <input type="number" min={1}  step={1} placeholder={1} />
-                        </div>
+                    <div style={{ marginLeft: '40px'}} className='data'>
+                        <h4>Wallet</h4>
+                        <p>Fastrack</p>       
+                        <p>Color</p>       
                     </div>
-                    <p>{`Rs. ${p.price}`}</p>
+                        <p>####</p>
+                    <Button value="Buy" />
                     {/* <Button value="Remove"/> */}
                 </div>
             ))}

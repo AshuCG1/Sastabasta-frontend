@@ -44,8 +44,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 200px;
-    justify-content: space-between;
+    height: 180px;
+    justify-content: center;
 }
 
 .login{
@@ -57,7 +57,7 @@
 }
 
 label{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     font-family: 'Open Sans';
 }
@@ -67,11 +67,11 @@ label{
     outline: none;
     width: 300px;
     border-radius: 20px;
-    padding: 7px ;
+    padding: 5px ;
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Open Sans';
-    font-weight: 300;
+    font-weight: 400;
     transition: all 0.2s ease-in-out;
     background: none;
 }
@@ -81,7 +81,7 @@ label{
     outline: none;
     width: 300px;
     border-radius: 20px;
-    padding: 7px ;
+    padding: 5px ;
     font-size: 14px;
     letter-spacing: 1px;
     font-family: 'Open Sans';
@@ -94,3 +94,4 @@ label{
     border: 1px solid rgb(0, 115, 255);
     width: 320px;
 }
+

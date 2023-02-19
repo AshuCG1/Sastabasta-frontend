@@ -76,4 +76,51 @@ padding: 0px;
 
 #add-form-section {
   height: 500px;
-  }
+}
+
+.add-box-demo{
+  display: flex;
+  flex-direction: row;
+}
+
+.add-box-demo-input{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.add-text{
+  text-align: center;
+}
+
+select{
+  border: 1px solid black;
+  border-radius: 20px;
+  background: none;
+  color: #232323;
+}
+
+input::placeholder{
+  color: black;
+}
+
+.add-box-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-box-image > h3{
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+
+.add-bx{
+  height: 220px;
+}
+
+
+
+

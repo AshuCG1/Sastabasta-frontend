@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import  Button  from "../Button";
 
 import "./register.css";
 import { ErrorMessage, Formik, Form, Field } from "formik";
@@ -7,7 +8,7 @@ import * as Yup from "yup";
 
 function Register() {
   const url = "http://localhost:2024/customer/addCustomer";
-
+  const[id, setId] = useState("")
   const registerSchema = Yup.object().shape({
     
       
@@ -29,9 +30,9 @@ function Register() {
       .matches(/^(?=.*[!@#\$%\^&\*])/,"Password must contain at least one Special Character")
   });
 
-  function submit(values) {
-    // e.preventDefault();
-    Axios.post(url, {
+  async function submit(values) {
+    values.preventDefault();
+    await Axios.post(url, {
     
       custName: values.custName,
       mobileNo: values.mobileNo,
@@ -39,14 +40,22 @@ function Register() {
       password: values.password,
     }).then((res) => {
       alert("Registration Success");
-      window.location.href = "http://localhost:3000/";
+      setId(res.data.custId)
+      // window.location.href = "http://localhost:3000/customerDash";
     });
+    
+    console.log(id)
+    
+    // adding wishlist
+    // Axios.post('http://localhost:2024/wishlist/addWishlist', {}).then((res)=>{   
+    // });
+
   }
 
   return (
     <div className="maincontainer">
       <div className="mainBox">
-        <div className="title">Registration</div>
+        <div className="title">Sign Up</div>
         <Formik
           initialValues={{
           
@@ -119,9 +128,7 @@ function Register() {
                   </div>
                 </div>
 
-                <div className="button">
-                  <input type="submit" value="Register" />
-                </div>
+                <button type="submit">Register</button>
               </Form>
             </div>
           )}
