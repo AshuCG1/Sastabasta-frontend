@@ -1,5 +1,6 @@
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import './updateCustomer.css'
 import React, { Component } from 'react'
 import customerService from '../../services/customerService';
 export default class UpdateCustomer extends Component {
@@ -84,10 +85,11 @@ export default class UpdateCustomer extends Component {
         return (
 
             <div>
+               
                 <br></br>
                 <div className="container">
                     <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
+                        <div className=" col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Update Customer</h3>
                             <div className="card-body">
                                 <form>
@@ -99,23 +101,23 @@ export default class UpdateCustomer extends Component {
                                     </div> */}
                                     <div className="form-group">
                                         <label> Customer Name: </label>
-                                        <input name="title" className="form-control"
+                                        <input name="title" className="upd "
                                             value={this.state.custName} onChange={this.changeCustNameHandler} />
                                     </div>
                                     <div className="form-group">
                                         <label> Mobile No: </label>
-                                        <input  name="mobileNo" className="form-control"
+                                        <input  name="mobileNo" className="upd"
                                             value={this.state.mobileNo} onChange={this.changeMobileNoHandler} />
                                     </div>
                                     
                                     <div className="form-group">
                                         <label> Email: </label>
-                                        <input  name="email" className="form-control"
+                                        <input  name="email" className="upd"
                                             value={this.state.email} onChange={this.changeEmailHandler} />
                                     </div>
                                     <div className="form-group">
                                         <label> Password: </label>
-                                        <input  name="password" className="form-control"
+                                        <input  name="password" className="upd"
                                             value={this.state.password} onChange={this.changePasswordHandler} />
                                     </div>
 

@@ -3,13 +3,10 @@ import Button from '../Button'
 import './wishlist.css'
 import React, { useState, useEffect } from "react";
 
-
-    // const totalP = (products.map( p => p.price ).reduce( (pr, total) => { return total += pr},0));
     const Wishlist = () => {
         const [products, setProducts] = useState([]);
-    
         useEffect(() => {
-            fetch("https://fakestoreapi.com/products")
+            fetch("http://localhost:2024/productWebsite/getAll")
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -17,25 +14,30 @@ import React, { useState, useEffect } from "react";
             })
             .catch(error => { console.error(error); });
         }, []);
+        const handleView =  (e) => {
+            const linkProduct =  `http://localhost:3000/product/getProductDetailsById/${e}`
+            console.log(linkProduct)
+          }
 
   return (
     <div className='section'>
         <div className='cart-block'> 
             <h1>Your Wish List</h1>
             <div className='overflow p2'>
-            { products.map((p) => (
+            { products.map((product) => (
                 <div className='cart-product'>
-                    <img src={p.image} alt="" />
+                    <img src={product.product.image} alt="" />
                     <div style={{ marginLeft: '40px'}} className='data'>
-                        <h4>Wallet</h4>
-                        <p>Fastrack</p>       
-                        <p>Color</p>       
+                        <h4>Type: {product.product.type} </h4>
+                        <p>Brand :{product.product.productBrand}</p>       
+                        <p>Color :{product.product.colour}</p>       
                     </div>
-                        <p>####</p>
-                    <Button value="Buy" />
+                        <p>Rating :{product.amazonRating}</p>
+                        <button  onClick={handleView(product.product.productId)}>View</button>
                     {/* <Button value="Remove"/> */}
                 </div>
             ))}
+            
         </div>
         </div>
         {/* <div className='order'>

@@ -41,7 +41,7 @@ function Register() {
     }).then((res) => {
       alert("Registration Success");
       setId(res.data.custId)
-      // window.location.href = "http://localhost:3000/customerDash";
+      window.location.href = "http://localhost:3000/customerDash";
     });
     
     console.log(id)

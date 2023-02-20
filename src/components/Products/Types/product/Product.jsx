@@ -32,7 +32,7 @@ import './product.css'
 import Button from '../../../Button'
 import { useSelector } from 'react-redux'
 
-const Product = (product) => {
+const Product = ({product}) => {
 
   const customer = useSelector((state) => state.CustomerReducer);
   console.log(customer.customer)
@@ -54,7 +54,7 @@ const Product = (product) => {
         <img src={product.image} alt="" />
       </div>
       <div className='prdt-detail'>
-        <h5>{product.product.productName}</h5>
+        <h5>{product.productName}</h5>
         <h6><span style={{ fontSize: '12px'}}>Brand</span> : {product.productBrand}</h6>
         <h6><span style={{ fontSize: '12px'}}>Type</span> : {product.type}</h6>
         <h6><span style={{ fontSize: '12px'}}>Color</span> : {product.colour}</h6>

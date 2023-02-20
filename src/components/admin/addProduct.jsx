@@ -26,6 +26,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(formData)
       const response = await axios.post("http://localhost:2024/productWebsite/addProductWebsite", formData);
       console.log(response);
       alert("Product added successfully")
