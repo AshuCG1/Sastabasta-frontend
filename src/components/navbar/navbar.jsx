@@ -40,6 +40,10 @@ function Navbar() {
               <li class="nav-item">{customer.customer != null ? <Link class="nav-link" to="/wishlist">Wishlist</Link> : <button ></button>}
               </li> : ''
             }
+            {/* {admin.admin == null && customer.customer == null ?
+              <li class="nav-item">{customer.customer != null ? <Link class="nav-link" to="/updateCustomer/">Update Profile</Link> : <button ></button>}
+              </li> : ''
+            } */}
 
 
           </ul>
