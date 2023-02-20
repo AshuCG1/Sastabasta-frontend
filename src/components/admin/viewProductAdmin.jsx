@@ -11,11 +11,14 @@ const ViewProductAdmin = () => {
 
     const location = useLocation();
     const path = location.pathname.split("/")[3];
+    const webPath = location.pathname.split("/")[4];
     console.log(path)
     const [image, setImage] = useState([]);
-    const url = `http://localhost:2024/productWebsite/editProductWebsite/${path}`;
+    const url = `http://localhost:2024/productWebsite/editProductWebsite/${path}/${webPath}`;
+    const putUrl = `http://localhost:2024/productWebsite/editProductWebsite/${path}`;
     const [formData, setFormData] = useState({
 
+        webId: webPath,
         amazonLink: "",
         amazonRating: "",
         amazonPrice: "",
@@ -41,7 +44,7 @@ const ViewProductAdmin = () => {
         console.log(formData)
         e.preventDefault();
         try {
-            const response = await axios.put(url, formData);
+            const response = await axios.put(putUrl, formData);
             console.log(response);
             alert("Product updated")
         } catch (error) {

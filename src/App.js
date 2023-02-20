@@ -44,7 +44,7 @@ function App() {
             <Route exact path='/adminDash' component={Dashboard}></Route>
             <Route exact path='/customerDash' component={CustomerDashboard}></Route>
             <Route exact path='/product/getProductDetailsById/:productId' component={ViewProduct}></Route>
-            <Route exact path='/product/viewProductAdminById/:productId' component={ViewProductAdmin}></Route> 
+            <Route exact path='/product/viewProductAdminById/:productId/:webId' component={ViewProductAdmin}></Route> 
             {/* type routes */}
             <Route exact path='/type=bagpack' component={Bagpack}></Route>
             <Route exact path='/type=business' component={Business}></Route>

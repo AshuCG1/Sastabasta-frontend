@@ -15,7 +15,8 @@ const Product = ({product}) => {
     window.location.replace(linkProduct)
   }
   const handleEdit =  () => {
-    const linkProduct =  `http://localhost:3000/product/viewProductAdminById/${product.product.productId}`
+    const linkProduct =  `http://localhost:3000/product/viewProductAdminById/${product.product.productId}/${product.webId}`
+    console.log(linkProduct)
     window.location.replace(linkProduct)
   }
 
