@@ -38,3 +38,12 @@ li{
     list-style: none;
     padding: 10px 0;
 }
+.brandLogo{
+    padding-left: 10px;
+    height: 60px;
+    width: auto;
+    padding-bottom: 10px;
+}
+.brandName{
+    margin-left: 10px;
+}

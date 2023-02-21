@@ -55,15 +55,7 @@ function App() {
         </div>
        
       </Router>
-      {/* <Route path='/' element={ <Register/> }/>
-        <Route path='/register' element={ <Register /> }/>
-        {/* <Route path='/login' element={ <Login /> }/> }
-        <Route path='/products' element={ <Products/> }/>
-        <Route path='/wishlist' element={ <Wishlist/> }/>
-        <Route path='/addproduct' element={ <AddProduct/> }/>
-        <Route path='/updateproduct' element={ <UpdateProduct/> }/>
-        <Route path='/viewcustomer' element={ <ViewCustomer/> }/>
-  <Route path='/updateCustomer/:id' element={<UpdateCustomer/>}/> */}
+     
 
      
     </div>

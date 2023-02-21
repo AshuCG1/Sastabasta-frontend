@@ -60,39 +60,45 @@ const ViewProduct = () => {
                 <img src={image} alt="" />
             </div>
             <div className="product-box">
-                <h4>Amazon</h4>
+                <div><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" className="brandLogo" alt="" />
+                <h5 className="brandName">Amazon</h5>
+                </div>
                 <ul>
                     <hr />
                     <li>Price :{products.amazonPrice}</li>
-                    <li>Discount :{products.amazonDiscount}</li>
+                    <li>Discount :{products.amazonDiscount}%</li>
                     <li>Rating : {products.amazonRating}</li>
                     <hr />
                  
-                    <button onClick={() => {redirectToWeb(products.amazonLink)}}>Buy Now</button>
+                    <button className="btn btn-outline-success" onClick={() => {redirectToWeb(products.amazonLink)}}>Buy Now</button>
                 </ul>
             </div>
             <div className="product-box">
-                <h4>FlipKart</h4>
+            <div><img src="https://logos-world.net/wp-content/uploads/2020/11/Flipkart-Emblem.png" className="brandLogo" alt="" />
+                <h5 className="brandName">Flipkart</h5>
+                </div>
                 <ul>
                     <hr />
                     <li>Price : {products.flipcartPrice}</li>
-                    <li>Discount : {products.flipcartDiscount}</li>
+                    <li>Discount : {products.flipcartDiscount}%</li>
                     <li>Rating : {products.flipcartRating}</li>
                     <hr />
                   
-                    <button onClick={() => {redirectToWeb(products.flipcartLink)}}>Buy Now</button>
+                    <button className="btn btn-outline-success" onClick={() => {redirectToWeb(products.flipcartLink)}}>Buy Now</button>
                 </ul>
             </div>
             <div className="product-box">
-                <h4>Myntra</h4>
+            <div><img src="https://findvectorlogo.com/wp-content/uploads/2019/03/myntra-vector-logo.png" className="brandLogo" alt="" />
+                <h5 className="brandName">Myntra</h5>
+                </div>
                 <ul>
                     <hr />
                     <li>Price :{products.myntraPrice}</li>
-                    <li>Discount :{products.myntraDiscount}</li>
-                    <li>Rating :{products.myntraRating}</li>
+                    <li>Discount :{products.myntraDiscount}%</li>
+                    <li>Rating :{products.myntraRating} </li>
                     <hr />
                  
-                    <button onClick={() => {redirectToWeb(products.myntraLink)}}>Buy Now</button>
+                    <button className="btn btn-outline-success" onClick={() => {redirectToWeb(products.myntraLink)}}>Buy Now</button>
                 </ul>
             </div>
         </div>

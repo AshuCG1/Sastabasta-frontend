@@ -2,11 +2,16 @@
 import Button from '../Button'
 import './wishlist.css'
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
+
 
     const Wishlist = () => {
+        const customer = useSelector((state) => state.CustomerReducer);
+       
+        console.log(customer.customer.payload.custId)
         const [products, setProducts] = useState([]);
         useEffect(() => {
-            fetch("http://localhost:2024/productWebsite/getAll")
+            fetch(`http://localhost:2024/wishlist/getAllProducts/${customer.customer.payload.custId}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -17,6 +22,7 @@ import React, { useState, useEffect } from "react";
         const handleView =  (e) => {
             const linkProduct =  `http://localhost:3000/product/getProductDetailsById/${e}`
             console.log(linkProduct)
+            window.location.replace(linkProduct)
           }
 
   return (
@@ -26,14 +32,16 @@ import React, { useState, useEffect } from "react";
             <div className='overflow p2'>
             { products.map((product) => (
                 <div className='cart-product'>
-                    <img src={product.product.image} alt="" />
+                    <img src={product.image} alt="" />
                     <div style={{ marginLeft: '40px'}} className='data'>
-                        <h4>Type: {product.product.type} </h4>
-                        <p>Brand :{product.product.productBrand}</p>       
-                        <p>Color :{product.product.colour}</p>       
+                        <h4> {product.productName} </h4>
+                        <p>Type: {product.type} </p>
+                        <p>Brand :{product.productBrand}</p>       
+                        <p>Color :{product.colour}</p>       
                     </div>
-                        <p>Rating :{product.amazonRating}</p>
-                        <button  onClick={handleView(product.product.productId)}>View</button>
+                        {/* <p>Rating :{product.amazonRating}</p> */}
+                        
+                        <button onClick={() => {handleView(product.productId)}}>View</button>
                     {/* <Button value="Remove"/> */}
                 </div>
             ))}

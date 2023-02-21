@@ -31,7 +31,7 @@ function Register() {
   });
 
   async function submit(values) {
-    values.preventDefault();
+    // values.preventDefault();
     await Axios.post(url, {
     
       custName: values.custName,
@@ -39,19 +39,31 @@ function Register() {
       email: values.email,
       password: values.password,
     }).then((res) => {
-      alert("Registration Success");
+      // alert("Registration Success");
       setId(res.data.custId)
-      window.location.href = "http://localhost:3000/customerDash";
+      console.log(res.data.custId)
+
+       Axios.post('http://localhost:2024/wishlist/addWishlist', {}).then((pes)=>{  
+        console.log(pes.data.wishlistId) 
+        Axios.put(`http://localhost:2024/wishlist/${pes.data.wishlistId}/setCustomer/${res.data.custId}`,{}).then((cres)=>{
+          console.log(cres)
+          alert("Registration Successful....Redirecting to Login Page")
+          window.location.href = "http://localhost:3000/login";
+        })
+
+         });
+
+      
+      // window.location.href = "http://localhost:3000/customerDash";
     });
     
-    console.log(id)
     
     // adding wishlist
     // Axios.post('http://localhost:2024/wishlist/addWishlist', {}).then((res)=>{   
     // });
 
   }
-
+  
   return (
     <div className="maincontainer">
       <div className="mainBox">

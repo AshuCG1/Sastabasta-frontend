@@ -10,6 +10,12 @@ function Navbar() {
 
   const admin = useSelector((state) => state.AdminReducer);
   const customer = useSelector((state) => state.CustomerReducer);
+  
+  const updater=(e)=>{
+    console.log(customer)
+    const linkProduct =  `http://localhost:3000/updatecustomer/${e}`
+    window.location.replace(linkProduct)
+  }
   console.log(admin)
   console.log(customer)
 
@@ -21,11 +27,7 @@ function Navbar() {
         <Link class="navbar-brand" to="/">SastaBasta</Link>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <Link class="nav-link active" to="/">Home
-                <span class="visually-hidden">(current)</span>
-              </Link>
-            </li>
+           
             <li class="nav-item">
               <Link class="nav-link" to="/register">Register</Link>
             </li>
@@ -33,17 +35,20 @@ function Navbar() {
               <Link class="nav-link" to="/login">Login</Link>
             </li>
             {admin.admin != null || customer.customer != null ?
-              <li class="nav-item">{admin.admin != null ? <button onClick={() => dispatch(AdminLogout()).then(window.location.replace('/admin-login'))} style={{ background: 'none', color: 'white', border: 'none', outline: 'none', marginTop: '7px', marginLeft: '5px' }}>Logout</button> : <button onClick={() => dispatch(CustomerLogout()).then(window.location.replace('/login'))} style={{ background: 'none', color: 'white', border: 'none', outline: 'none', marginTop: '7px', marginLeft: '5px' }}>Logout</button>}
+              <li class="nav-item">
+                {admin.admin != null ? <button onClick={() => dispatch(AdminLogout())
+                  .then(window.location.replace('/admin-login'))} 
+                  style={{ background: 'none', color: 'white', border: 'none', outline: 'none', marginTop: '7px', marginLeft: '5px' }}>Logout</button> : <button onClick={() => dispatch(CustomerLogout()).then(window.location.replace('/login'))} style={{ background: 'none', color: 'white', border: 'none', outline: 'none', marginTop: '7px', marginLeft: '5px' }}>Logout</button>}
               </li> : ''
             }
             {admin.admin == null && customer.customer != null ?
               <li class="nav-item">{customer.customer != null ? <Link class="nav-link" to="/wishlist">Wishlist</Link> : <button ></button>}
               </li> : ''
             }
-            {/* {admin.admin == null && customer.customer == null ?
-              <li class="nav-item">{customer.customer != null ? <Link class="nav-link" to="/updateCustomer/">Update Profile</Link> : <button ></button>}
+            {admin.admin == null && customer.customer != null ?
+              <li class="nav-item">{customer.customer != null ? <button onClick={() => {updater(customer.customer.payload.custId)}} style={{ background: 'none', color: 'white', border: 'none', outline: 'none', marginTop: '7px', marginLeft: '5px' }}>Update Profile</button> : <button >Hello</button>}
               </li> : ''
-            } */}
+            }
 
 
           </ul>
