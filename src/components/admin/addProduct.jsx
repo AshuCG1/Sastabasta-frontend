@@ -51,6 +51,7 @@ const AddProduct = () => {
           <input type="text" className='text-field add-text' placeholder="Product Brand" name="productBrand" onChange={handleChange}/>
           <label htmlFor="type"></label>
           <select name="type" onChange={handleChange}>
+            <option value="">Select Type</option>
             <option value="luggage">Luggage</option>
             <option value="bagpack">BagPack</option>
             <option value="wallet">Wallet</option>
@@ -72,65 +73,3 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
-
-
-
-{/* <form onSubmit={handleSubmit} className='form-control' id="add-form">
-      <h1 className='login'>Add product</h1>
-        <div className='inputFields'>
-          <div className="add-box-demo">
-            <div className="add-box-demo-input">
-            <label htmlFor="productName">Product Name</label>
-            <input
-              type="text"
-              name="productName"
-              value={formData.productName}
-              onChange={handleChange}
-              required
-            />
-            </div>
-            <div>
-            <label htmlFor="productBrand">Product Brand</label>
-            <input
-              type="text"
-              name="productBrand"
-              value={formData.productBrand}
-              onChange={handleChange}
-              required
-            />
-            </div>
-            
-          </div>
-
-          <div className="add-box-demo">
-          <label htmlFor="type">Type</label>
-        <select name="type" value={formData.type} onChange={handleChange}>
-          <option value="luggage">Luggage</option>
-          <option value="travel bag">Travel Bag</option>
-          <option value="wallet">Wallet</option>
-          <option value="duffle">Duffle</option>
-          <option value="business bag">Business Bag</option>
-        </select>
-        <label htmlFor="colour">Colour</label>
-        <input
-          type="text"
-          name="colour"
-          value={formData.colour}
-          onChange={handleChange}
-          required
-        />
-          </div>
-        
-        
-        <label htmlFor="image">Image Link</label>
-        <input
-          type="text"
-          name="image"
-          value={formData.image}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Add Product</button>
-        </div>
-       
-      </form> */}

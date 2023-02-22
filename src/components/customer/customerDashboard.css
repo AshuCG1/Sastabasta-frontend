@@ -1,3 +1,4 @@
+@import url(//db.onlinewebfonts.com/c/799253af0c14af1bb362e12dca10939d?family=BonbonLightW00-Regular);
 .choice-container{
   position: relative;
   width: 100%;
@@ -50,5 +51,15 @@
   text-transform: uppercase;
   background-color: rgba(0,0,0,0.5);
   padding: 5px 10px;
+
+}
+.style-heading{
+  
+    font-family: 'BonbonLight';
+    font-size: 60px;
+    color: #3a84df;
+    color: var(--clr-1);
+    margin-bottom: 10px;
+    margin-top: 20px;
 
 }

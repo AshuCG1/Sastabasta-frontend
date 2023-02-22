@@ -23,7 +23,7 @@ function Register() {
 
     password: Yup.string()
       .required("This Field cannot be empty")
-      .matches(/(?=.{8,20})/, "Password must match criteria")
+      .matches(/(?=.{8,})/, "Password must match criteria")
       .matches(/^(?=.*[a-z])/,"Password must contain at least one Lowercase letter")
       .matches(/^(?=.*[A-Z])/,"Password must contain at least one Uppercase letter")
       .matches(/^(?=.*[0-9])/,"Password must contain at least one Number")

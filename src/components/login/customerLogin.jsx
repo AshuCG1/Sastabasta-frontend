@@ -24,7 +24,7 @@ function CustomerLogin() {
   };
   
   const isEmailValid = (email) => {
-    const emailRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const emailRegex = /^(?=.*[a-z])(?=.*[@])[A-Za-z\d@$!%*?&]{8,}$/;
     return emailRegex.test(email);
   };
 

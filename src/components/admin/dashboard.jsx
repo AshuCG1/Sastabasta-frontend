@@ -7,6 +7,8 @@ const Dashboard = () => {
     
     <div className="container-fluid">
       <br></br>
+      <h2>Welcome, Admin</h2>
+      <br />
       <div className="row">
         <div className="col-md-4">
           <Link to="/addproduct">

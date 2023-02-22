@@ -1,9 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./customerDashboard.css";
+import Carousel from "./carousel";
 const CustomerDashboard = () => {
   
   return (
+    <>
+    <div className="container">
+      <h1 className="style-heading">Welcome to SastaBasta</h1>
+    </div>
+    <Carousel></Carousel>
+    <div className="category">
+      <img src="http://www.americantourister.in/wp-content/uploads/2014/04/Category_Head.png" alt="" />
+    </div>
     <div className="choice-container">
     <div className="choices">
       <Link to="/type=luggage" className="choice-links">
@@ -44,6 +53,7 @@ const CustomerDashboard = () => {
       </Link>
     </div>
   </div>
+  </>
   );
 };
 
