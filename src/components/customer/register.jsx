@@ -12,7 +12,7 @@ function Register() {
   const registerSchema = Yup.object().shape({
     
       
-    custName: Yup.string().required("This Field cannot be empty"),
+    custName: Yup.string().required("This Field cannot be empty").matches(/^[a-zA-Z ]{2,30}$/, "UserName must contain only letters and must be in the range of 2-30"),
 
     mobileNo: Yup.string()
       .length(10)
@@ -53,15 +53,11 @@ function Register() {
 
          });
 
-      
-      // window.location.href = "http://localhost:3000/customerDash";
+
     });
     
     
-    // adding wishlist
-    // Axios.post('http://localhost:2024/wishlist/addWishlist', {}).then((res)=>{   
-    // });
-
+    
   }
   
   return (

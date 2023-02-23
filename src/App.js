@@ -1,17 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import Products from './components/Products/Products';
 import Wishlist from './components/wishlist/wishlist';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Register from './components/customer/register';
-
 import Navbar from './components/navbar/navbar';
-import Home from './components/customer/home';
 import AddProduct from './components/admin/addProduct';
-// import UpdateProduct from './components/admin/updateProduct';
 import ViewCustomer from './components/admin/viewCustomers';
 import UpdateCustomer from './components/customer/updateCustomer';
-import Product from './components/product/Product';
 import AdminLogin from './components/login/adminLogin';
 import CustomerLogin from './components/login/customerLogin';
 import Dashboard from './components/admin/dashboard';

@@ -15,29 +15,7 @@ const ViewProductAdmin = () => {
     console.log(path)
     const [image, setImage] = useState([]);
 
-    // for testing purposes
-    // const [linkCheck, setLinkCheck] = useState('');
-    // const [ratingCheck, setRatingCheck] = useState('');
-    // const [priceCheck, setPriceCheck] = useState('');
-    // const [discountCheck, setDiscountCheck] = useState('');
-
-    // const isLinkValid = (link) => {
-    //     const linkRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    //     return linkRegex.test(link);
-    // };
-
-    // const isRatingValid = (rating) => {
-    //     const ratingRegex = "";
-    //     return ratingRegex.test(rating);
-    // };
-    // const isPriceValid = (price) => {
-    //     const priceRegex = "";
-    //     return priceRegex.test(price);
-    // };
-    // const isDiscountValid = (discount) => {
-    //     const discountRegex = "";
-    //     return discountRegex.test(discount);
-    // };
+   
 
 
 
@@ -81,7 +59,6 @@ const ViewProductAdmin = () => {
     useEffect(() => {
         const fetchImage = async () => {
             const res = await axios.get(`http://localhost:2024/product/getProduct/${path}`, {})
-            //console.log(res.data)
             setImage(res.data.image)
             console.log(res.data.image)
         }

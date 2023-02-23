@@ -35,13 +35,13 @@ export default class UpdateCustomer extends Component {
                 email: customer.email,
                 password: customer.password
             });
-            console.log(customer)
+            
         });
     }
 
     updateCustomer = (e) => {
         e.preventDefault();
-        console.log("save pressed")
+        
         let customer = { 
             custId: this.state.custId,
             custName: this.state.custName, 
@@ -50,7 +50,6 @@ export default class UpdateCustomer extends Component {
             password: this.state.password};
 
         customerService.updateCustomer(customer).then(res => {
-            // this.props.history.push('/buyInsurance/'+ this.state.customerId);
             alert("customer updated")
             console.log(customer)
         });
@@ -73,13 +72,7 @@ export default class UpdateCustomer extends Component {
         this.setState({ password: event.target.value });
     }
 
-    cancel() {
-        this.props.history.push('/buyInsurance/'+ this.state.customerId);
-    }
-    back() {
-        this.props.history.goBack();
-        // window.location.reload();
-    }
+    
 
     render() {
         return (
@@ -94,11 +87,6 @@ export default class UpdateCustomer extends Component {
                             <div className="card-body">
                                 <form>
                                  
-                                {/* <div className="form-group">
-                                        <label> Customer Id: </label>
-                                        <input name="Id" className="form-control"
-                                            value={this.state.customerId} onChange={this.changeCustomerIdHandler} />
-                                    </div> */}
                                     <div className="form-group">
                                         <label> Customer Name: </label>
                                         <input name="title" className="upd "
@@ -122,10 +110,7 @@ export default class UpdateCustomer extends Component {
                                     </div>
 
                                     <button className="btn btn-outline-success btn" onClick={this.updateCustomer}>Save</button>
-                                    {/* <button className="btn btn-outline-danger btn" onClick={this.cancel.bind(this)} style={{ margin: "1em" }}>Cancel</button>
-                                    <button onClick={() => this.back()} className="btn btn-outline-danger" ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
-                        </svg> Go Back</button> */}
+                                  
                                 </form>
                             </div>
                         </div>

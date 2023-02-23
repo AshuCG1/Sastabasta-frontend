@@ -6,7 +6,7 @@ const Business = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:2024/product/filter?type=business%20bag")//businessbag ho sakta hai
+        fetch("http://localhost:2024/product/filter?type=business%20bag")
         .then(res => res.json())
         .then(data => {
             setProducts(data);

@@ -1,6 +1,5 @@
 import React ,  {  useRef, useState } from 'react'
 import './login.css'
-import  Button  from '../Button'
 import { images } from '../../constants/index'
 import { Link } from 'react-router-dom'
 
@@ -24,8 +23,7 @@ function AdminLogin() {
   };
   
   const isEmailValid = (email) => {
-    // const emailRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    // return emailRegex.test(email);
+
   };
 
   const handlePasswordChange = (event) => {

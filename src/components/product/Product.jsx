@@ -10,7 +10,7 @@ const Product = ({product}) => {
   console.log(customer.customer)
 
 
-  // console.log(`http://localhost:2024/product/getProduct/${product.product.productId}`)
+
   const handleCart =  () => {
     const linkProduct =  `http://localhost:3000/product/getProductDetailsById/${product.product.productId}`
     window.location.replace(linkProduct)
@@ -21,11 +21,9 @@ const Product = ({product}) => {
     window.location.replace(linkProduct)
   }
   const addToCart =  () => {
-    // const cartLink =  `http://localhost:2024/product/${product.product.productId}/addWishlist/${}`
-    // console.log(cartLink)
+
     Axios.get(`http://localhost:2024/wishlist/getWishlist/${customer.customer.payload.custId}`).then((res)=>{ 
-      // console.log(res.data.wishlistId)  
-      // console.log(product.product.productId)  
+ 
       const cartLink =  `http://localhost:2024/product/${product.product.productId}/addWishlist/${res.data.wishlistId}`;
       Axios.put(cartLink, {}).then((res)=>{ 
         console.log(res)  
