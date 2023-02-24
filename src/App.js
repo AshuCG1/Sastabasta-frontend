@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Register from './components/customer/register';
 import Navbar from './components/navbar/navbar';
 import AddProduct from './components/admin/addProduct';
+import UpdateProduct from './components/admin/updateProduct';
 import ViewCustomer from './components/admin/viewCustomers';
 import UpdateCustomer from './components/customer/updateCustomer';
 import AdminLogin from './components/login/adminLogin';
@@ -40,6 +41,7 @@ function App() {
             <Route exact path='/customerDash' component={CustomerDashboard}></Route>
             <Route exact path='/product/getProductDetailsById/:productId' component={ViewProduct}></Route>
             <Route exact path='/product/viewProductAdminById/:productId/:webId' component={ViewProductAdmin}></Route> 
+            <Route exact path='/product/updateProduct/:productId' component={UpdateProduct}></Route> 
             {/* type routes */}
             <Route exact path='/type=bagpack' component={Bagpack}></Route>
             <Route exact path='/type=business' component={Business}></Route>

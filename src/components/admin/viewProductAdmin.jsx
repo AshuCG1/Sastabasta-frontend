@@ -35,7 +35,8 @@ const ViewProductAdmin = () => {
         myntraLink: "",
         myntraRating: "",
         myntraPrice: "",
-        myntraDiscount: ""
+        myntraDiscount: "",
+        
     });
 
     const handleChange = (e) => {

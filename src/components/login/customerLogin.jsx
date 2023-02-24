@@ -24,7 +24,7 @@ function CustomerLogin() {
   };
   
   const isEmailValid = (email) => {
-    const emailRegex = /^(?=.*[a-z])(?=.*[@])[A-Za-z\d@$!%*?&]{8,}$/;
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(email);
   };
 
@@ -63,51 +63,16 @@ function CustomerLogin() {
         <div className='inputFields'>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" value={emailCheck} onChange={handleEmailChange} required className='text-field' ref={email} />
-          {!isPasswordValid(passwordCheck) && (
-            <><p></p></>
+          {!isEmailValid(emailCheck) && (
+            <><span class="badge rounded-pill text-bg-danger">Email not valid</span></>
+            
           )}
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" value={passwordCheck} onChange={handlePasswordChange} required className='password-field' ref={password} />
           {!isPasswordValid(passwordCheck) && (
 
-            <>
-<button type="button" class="btn btn-outline-danger btn-sm " data-bs-toggle="modal" data-bs-target="#exampleModal">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-</svg>
+          <><span class="badge rounded-pill text-bg-danger">Password not valid</span></>
 
-</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h5>Email Conditions:</h5>
-        <ul>
-          <li>Should be a valid email i.e Registered Beforehand</li>
-          <li>Should Contain @ and .com, .org , etc. i.e dsp@capgemini.com</li>
-        </ul>
-        <h5>Password Conditions:</h5>
-        <ul>
-          <li>Should contain atleast one UpperCase letter</li>
-          <li>Should contain atleast one lowerCase letter</li>
-          <li>Should contain atleast one Special Character</li>
-          <li>Should contain atleast one number</li>
-          <li>Should contain atleast 8 charater long</li>
-          
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-       
-      </div>
-    </div>
-  </div>
-</div></>
 
           )}
         </div>
